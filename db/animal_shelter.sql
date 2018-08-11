@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS animal_shelter;
+DROP TABLE IF EXISTS adoptions;
 DROP TABLE IF EXISTS owners;
 DROP TABLE IF EXISTS pets;
 
@@ -21,11 +21,9 @@ CREATE TABLE owners(
   funds INT
 );
 
-CREATE TABLE animal_shelter(
+CREATE TABLE adoptions(
   id SERIAL PRIMARY KEY,
-  name VARCHAR(255),
-  owner VARCHAR(255),
-  till INT,
-  owner_id INT REFERENCES owners(id),
-  pet_id INT REFERENCES pets(id)
+  owner_id INT REFERENCES owners(id) ON DELETE CASCADE,
+  pet_id INT REFERENCES pets(id) ON DELETE CASCADE,
+  adoption_fee INT
 );
