@@ -33,7 +33,7 @@ pet1 = Pet.new({
   'age' => '1',
   'size' => 'big',
   'sex' => 'male',
-  'admission_date' => 20180806,
+  'admission_date' => 20180812,
   'trained' => false,
   'cost' => 300
   })
@@ -45,7 +45,7 @@ pet2 = Pet.new({
   'age' => '12',
   'size' => 'small',
   'sex' => 'male',
-  'admission_date' => 20180804,
+  'admission_date' => 20180810,
   'trained' => false,
   'cost' => 200,
   })
@@ -79,28 +79,30 @@ pet2.save()
 pet3.save()
 pet4.save()
 
-# adoption_fee is just a random number now, want to adjust this so it reflects the cost of the pet
 adoption1 = Adoption.new({
   "owner_id" => owner1.id,
-  "pet_id" => pet3.id,
-  "adoption_fee" => 20
+  "pet_id" => pet3.id
   })
 
 adoption2 = Adoption.new({
   "owner_id" => owner2.id,
-  "pet_id" => pet4.id,
-  "adoption_fee" => 20
+  "pet_id" => pet4.id
   })
 
 adoption3 = Adoption.new({
   "owner_id" => owner2.id,
-  "pet_id" => pet2.id,
-  "adoption_fee" => 20
+  "pet_id" => pet2.id
+  })
+
+adoption4 = Adoption.new({
+  "owner_id" => owner3.id,
+  "pet_id" => pet1.id
   })
 
 adoption1.save()
 adoption2.save()
 adoption3.save()
+adoption4.save()
 
 binding.pry
 nil

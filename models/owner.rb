@@ -66,22 +66,25 @@ class Owner
   end
 
   def delete()
-    sql = "DELETE FROM owners
-    WHERE id = $1"
+    sql = "DELETE FROM owners WHERE id = $1"
     values = [@id]
     SqlRunner.run( sql, values )
   end
 
+  #list all adopted pets per owner
+  def list_adopted_pets()
+    sql = "SELECT * FROM pets INNER JOIN adoptions ON pets.id = adoptions.pet_id WHERE adoptions.owner_id = $1"
+    values = [@id]
+    pets = SqlRunner.run(sql, values)
+    return pets.map{|pet| Pet.new(pet)}
+  end
 
-
-
-  # #  To buy pets  --> still needs modifying, this is the film example
-  # def buy_all_tickets()
-  #   sql = "SELECT SUM (pets.price) FROM films INNER JOIN tickets ON films.id = tickets.film_id WHERE tickets.customer_id = $1"
-  #   values = [@id]
-  #   result = SqlRunner.run(sql, values).first
-  #   @funds = @funds - result['sum'].to_i
-  # end
-
+  #To buy pets --> deducts the cost of the pet from their funds
+  def buy_pet()
+    sql = "SELECT SUM (pets.cost) FROM pets INNER JOIN adoptions ON pets.id = adoptions.pet_id WHERE adoptions.owner_id = $1"
+    values = [@id]
+    result = SqlRunner.run(sql, values).first
+    @funds = @funds - result['sum'].to_i
+  end
 
 end

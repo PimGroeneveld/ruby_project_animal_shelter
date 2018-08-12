@@ -23,3 +23,15 @@ end
 get "/contact" do
   erb(:contact)
 end
+
+#not working yet
+get "/matched-owners" do
+  @owners_pets = Adoption.show_all_matches()
+  erb(:matches)
+end
+
+# get "/matched-owners" do
+#   @owners = Adoption.owner()
+#   @pets = Adoption.pet()
+#   erb(:matches)
+# end
