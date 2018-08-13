@@ -40,6 +40,18 @@ post "/all-pets" do
   erb(:create)
 end
 
+post "/all-pets/owner-save" do
+  @adoption = Adoption.new(params)
+  @adoption.save
+  erb(:owner_save)
+end
+
+#DELETE ALL
+post "/all-pets/delete-all" do
+  Pet.delete_all()
+  erb(:delete_all)
+end
+
 #SHOW
 get "/all-pets/:id" do
   @pet = Pet.find(params[:id])
@@ -53,19 +65,29 @@ post "/all-pets/:id/delete" do
   redirect "/all-pets"
 end
 
-#EDIT
+#EDIT pets info
 get "/all-pets/:id/edit" do
   @pet = Pet.find(params[:id])
   erb(:edit)
 end
 
- #update still not fully working due to the class method not working, ask about after finishing mvp
-#UPDATE
+ #update still not fully working, messing up order of updated info
+#UPDATE pets info
 post "/all-pets/:id" do
   @pet = Pet.new(params)
   @pet.update
   erb(:update)
 end
+
+#Match up pet to owner
+get "/all-pets/:id/match-to-owner" do
+  @owners = Owner.all()
+  @pets = Pet.all()
+  erb(:match_to_owner)
+end
+
+
+
 
 #from index:
 #<!-- <p> Ready for adoption: <%= pet.ready_adoption%></p> -->

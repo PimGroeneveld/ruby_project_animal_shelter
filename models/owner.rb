@@ -43,7 +43,6 @@ class Owner
     return result
   end
 
-  #UPDATE  --> error: "PG::ProtocolViolation: ERROR:  bind message supplies 2 parameters, but prepared statement "query" requires 3"
   def update()
     sql = "UPDATE owners
     SET
@@ -55,7 +54,7 @@ class Owner
       $1, $2
     )
     WHERE id = $3"
-    values = [@name, @funds]
+    values = [@name, @funds, @id]
     SqlRunner.run( sql, values )
   end
 
@@ -78,6 +77,7 @@ class Owner
     pets = SqlRunner.run(sql, values)
     return pets.map{|pet| Pet.new(pet)}
   end
+  
   #instance method -> working for individual owners
   def list_adopted_pets()
     sql = "SELECT * FROM pets INNER JOIN adoptions ON pets.id = adoptions.pet_id WHERE adoptions.owner_id = $1"

@@ -22,9 +22,15 @@ owner3 = Owner.new({
   'funds' => 1000
   })
 
+owner4 = Owner.new({
+  'name' => 'Pim Groeneveld',
+  'funds' => 200
+  })
+
 owner1.save()
 owner2.save()
 owner3.save()
+owner4.save()
 
 pet1 = Pet.new({
   'name' => 'Patch',
@@ -74,10 +80,23 @@ pet4 = Pet.new({
   'cost' => 800
   })
 
+pet5 = Pet.new({
+  'name' => 'Greyfriars Bobby',
+  'type' => 'Dog',
+  'breed' => 'Skye Terrier',
+  'age' => '15',
+  'size' => 'small',
+  'sex' => 'male',
+  'admission_date' => 20050220,
+  'adoptable' => true,
+  'cost' => 100
+  })
+
 pet1.save()
 pet2.save()
 pet3.save()
 pet4.save()
+pet5.save()
 
 adoption1 = Adoption.new({
   "owner_id" => owner1.id,

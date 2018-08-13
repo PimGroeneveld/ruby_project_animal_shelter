@@ -73,7 +73,7 @@ class Pet
     ) =
     ($1, $2, $3, $4, $5, $6, $7, $8, $9)
     WHERE id = $10"
-    values = [@name, @type, @breed, @age, @size, @sex, @admission_date, @adoptable, @cost]
+    values = [@name, @type, @breed, @age, @size, @sex, @admission_date, @adoptable, @cost, @id]
     SqlRunner.run( sql, values )
   end
 

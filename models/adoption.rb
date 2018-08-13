@@ -52,7 +52,7 @@ class Adoption
     ) =
     ($1, $2)
     WHERE id = $3"
-    values = [@owner_id, @pet_id]
+    values = [@owner_id, @pet_id, @id]
     SqlRunner.run( sql, values )
   end
 

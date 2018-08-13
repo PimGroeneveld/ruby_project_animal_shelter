@@ -1,0 +1,26 @@
+<p>This is not working yet</p>
+
+<p>Match a pet to a new owner!</p>
+
+<form action="/all-pets/owner-save" method="post">
+
+<p> New match: </p>
+<label for="owner"> Owner name: </label>
+   <select id ="owner" name = "owner_id">
+     <% @owners.each do |owner| %>
+     <option value = "<%= owner.id%>"><%= owner.name %></option>
+     <% end %>
+   </select>
+   <br>
+<label for="pet"> Adopted pet: </label>
+    <select id ="pet" name = "pet_id">
+      <% @pets.each do |pet| %>
+      <option value = "<%= pet.id%>"><%= pet.name %></option>
+      <% end %>
+    </select>
+    <br>
+<hr/>
+
+<input type="submit" value="Submit match!">
+
+</form>
