@@ -16,6 +16,10 @@ get "/all-pets" do
   erb(:index)
 end
 
+get "/all-pets/new" do
+  erb(:new)
+end
+
 get "/tips" do
   erb(:tips)
 end
@@ -35,3 +39,10 @@ end
 #   @pets = Adoption.pet()
 #   erb(:matches)
 # end
+
+#CREATE
+post "/all-pets" do
+  @pet = Pet.new(params)
+  @pet.save
+  erb(:create)
+end

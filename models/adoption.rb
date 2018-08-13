@@ -69,11 +69,12 @@ class Adoption
     SqlRunner.run( sql, values )
   end
 
-  # def assign_pet()
   # --> insert update in here some how? and in adoption or pet class?
   # Even pets without any adoption should exist here under pet_id
-  #
-  # end
+  def assign_pet()
+  
+
+  end
 
   #Not working in terminal/sinatra but working in psql
   def self.show_all_matches()

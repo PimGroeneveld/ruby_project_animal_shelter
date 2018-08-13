@@ -120,6 +120,7 @@ class Pet
 
   #version to mess around in --> wanted to create a scenario in which the @trained is obsolete and would get marked ready for adoption immediately after the two weeks have passed. Now it is more realistic though, some pets might take longer to train and thus wont accidently get marked as adoptable without human intervention
 
+  #need a current date variable in here, otherwise end_date will always scale of admission date and thus always be bigger
   # def ready_adoption()
   #   start_date = @admission_date
   #   @end_date = @admission_date + 14
