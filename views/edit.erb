@@ -1,0 +1,43 @@
+<form action="/all-pets/<%= @pet.id %>" method="post">
+
+    <label for="name"> Name of pet: </label>
+    <input id = "name" type="text" name="name" value = "<%= @pet.name%>">
+    <br>
+    <label for="type"> Type of animal: </label>
+    <input id = "type" type="text" name="name" value = "<%= @pet.type%>">
+    <br>
+    <label for="breed"> Breed: </label>
+    <input id = "breed" type="text" name="breed" value = "<%= @pet.breed%>">
+    <br>
+    <label for="age"> Age: </label>
+    <input id = "age" type="number" name="age" value = "<%= @pet.age%>">
+    <br>
+    <label for="size"> Size: </label>
+    <select id = "size" name="size" value = "<%= @pet.size%>">
+      <option value="small">Small</option>
+      <option value="medium">Medium</option>
+      <option value="big">Big</option>
+    </select>
+    <br>
+    <label for="sex"> Sex: </label>
+    <select id = "sex" name="sex" value = "<%= @pet.sex%>">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+    <br>
+    <label for="admission-date"> Admission date: (enter as YYYYMMDD) </label>
+    <input id = "admission-date" type="date" name="admission_date" value = "<%= @pet.admission_date%>">
+    <br>
+    <label for="adoptable"> Adoptable: </label>
+    <select id = "adoptable" name="adoptable" value = "<%= @pet.adoptable%>">
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+    </select>
+    <br>
+    <label for="cost"> Cost: </label>
+    <input id = "cost" type="number" name="cost" value = "<%= @pet.cost%>">
+    <br>
+
+    <input type="submit" value="Update Pet">
+
+</form>

@@ -28,7 +28,6 @@ get "/contact" do
   erb(:contact)
 end
 
-#not working yet
 get "/matched-owners" do
   @adoptions = Adoption.all()
   erb(:matches)
@@ -41,6 +40,32 @@ post "/all-pets" do
   erb(:create)
 end
 
+#SHOW
+get "/all-pets/:id" do
+  @pet = Pet.find(params[:id])
+  erb(:show)
+end
+
+#DELETE
+post "/all-pets/:id/delete" do
+  @pet = Pet.find(params[:id])
+  @pet.delete
+  redirect "/all-pets"
+end
+
+#EDIT
+get "/all-pets/:id/edit" do
+  @pet = Pet.find(params[:id])
+  erb(:edit)
+end
+
+ #update still not fully working due to the class method not working, ask about after finishing mvp
+#UPDATE
+post "/all-pets/:id" do
+  @pet = Pet.new(params)
+  @pet.update
+  erb(:update)
+end
 
 #from index:
 #<!-- <p> Ready for adoption: <%= pet.ready_adoption%></p> -->

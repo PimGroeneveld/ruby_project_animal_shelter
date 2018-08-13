@@ -1,0 +1,20 @@
+<h1>Pet info:</h1>
+
+<p> Name: <%= @pet.name %></p>
+<p> Type animal: <%= @pet.type %></p>
+<p> Breed: <%= @pet.breed %></p>
+<p> Age: <%= @pet.age %></p>
+<p> Size: <%= @pet.size %></p>
+<p> Sex: <%= @pet.sex %></p>
+<p> Cost: £<%= @pet.cost %></p>
+<p><%= @pet.name_admission%></p>
+<p> Ready for adoption: <%= @pet.pet_adoptable()%></p>
+<hr/>
+
+<form action="/all-pets/<%= @pet.id%>/delete" method="post">
+  <input type="submit" value="Delete">
+</form>
+
+<form action="/all-pets/<%= @pet.id%>/edit" method="get">
+  <input type="submit" value="Edit">
+</form>
