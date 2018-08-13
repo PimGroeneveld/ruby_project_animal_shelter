@@ -16,8 +16,8 @@ get "/all-pets" do
   erb(:index)
 end
 
-get "/all-pets/new" do
-  erb(:new)
+get "/all-pets/new-pet" do
+  erb(:newpet)
 end
 
 get "/tips" do
@@ -30,15 +30,9 @@ end
 
 #not working yet
 get "/matched-owners" do
-  @owners_pets = Adoption.show_all_matches()
+  @adoptions = Adoption.all()
   erb(:matches)
 end
-
-# get "/matched-owners" do
-#   @owners = Adoption.owner()
-#   @pets = Adoption.pet()
-#   erb(:matches)
-# end
 
 #CREATE
 post "/all-pets" do
@@ -46,3 +40,7 @@ post "/all-pets" do
   @pet.save
   erb(:create)
 end
+
+
+#from index:
+#<!-- <p> Ready for adoption: <%= pet.ready_adoption%></p> -->

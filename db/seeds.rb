@@ -33,8 +33,8 @@ pet1 = Pet.new({
   'age' => '1',
   'size' => 'big',
   'sex' => 'male',
-  'admission_date' => 20180812,
-  'trained' => false,
+  'admission_date' => 20180825,
+  'adoptable' => false,
   'cost' => 300
   })
 
@@ -46,7 +46,7 @@ pet2 = Pet.new({
   'size' => 'small',
   'sex' => 'male',
   'admission_date' => 20180810,
-  'trained' => false,
+  'adoptable' => false,
   'cost' => 200,
   })
 
@@ -58,7 +58,7 @@ pet3 = Pet.new({
   'size' => 'small',
   'sex' => 'male',
   'admission_date' => 20180720,
-  'trained' => true,
+  'adoptable' => true,
   'cost' => 400
   })
 
@@ -70,7 +70,7 @@ pet4 = Pet.new({
   'size' => 'small',
   'sex' => 'female',
   'admission_date' => 20180515,
-  'trained' => true,
+  'adoptable' => true,
   'cost' => 800
   })
 

@@ -11,7 +11,7 @@ CREATE TABLE pets(
   size VARCHAR(255),
   sex VARCHAR(255),
   admission_date DATE,
-  trained BOOLEAN,
+  adoptable BOOLEAN,
   cost INT
 );
 

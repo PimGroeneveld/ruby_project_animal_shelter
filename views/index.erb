@@ -9,10 +9,10 @@
 <p> Sex: <%= pet.sex %></p>
 <p> Cost: £<%= pet.cost %></p>
 <p><%= pet.name_admission%></p>
-<p> Ready for adoption: <%= pet.ready_adoption%></p>
+<p> Ready for adoption: <%= pet.pet_adoptable()%></p>
 <hr/>
 <% end %>
 
-<form action="/all-pets/new" method="get">
+<form action="/all-pets/new-pet" method="get">
   <input type="submit" value="Register new pet!">
 </form>

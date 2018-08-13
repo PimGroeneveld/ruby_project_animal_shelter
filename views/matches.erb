@@ -1,8 +1,8 @@
-<h1>All happy previous customers and their pets</h1>
+<h1>All happy owners and their pets</h1>
 
-<% @owners_pets.each do |match| %>
+<% @adoptions.each do |adopt| %>
   <p> Match: </p>
-  <p> Owner: <%= match%></p>
-  <p> Adopted pet: <%= match%></p>
+  <p> Owner name: <%= adopt.owner.name %></p>
+  <p> Adopted pet: <%= adopt.pet.name %></p>
 <hr/>
 <% end %>

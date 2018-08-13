@@ -48,7 +48,7 @@ class Adoption
     sql = "UPDATE adoptions
     SET (
       owner_id,
-      pet_id]
+      pet_id
     ) =
     ($1, $2)
     WHERE id = $3"
@@ -72,21 +72,21 @@ class Adoption
   # --> insert update in here some how? and in adoption or pet class?
   # Even pets without any adoption should exist here under pet_id
   def assign_pet()
-  
+
 
   end
 
-  #Not working in terminal/sinatra but working in psql
+  #Show all adoptions as owner_id and pet_id
   def self.show_all_matches()
-    sql = "SELECT owners.name, pets.name FROM owners
+    sql = "SELECT adoptions.* FROM owners
     INNER JOIN adoptions ON owners.id = adoptions.owner_id
     INNER JOIN pets ON pets.id = adoptions.pet_id"
     result = SqlRunner.run(sql)
-    return result
+    return result.map{|adoption| Adoption.new(adoption)}
   end
 
   #Which owner belong to which owner_id
-  def self.owner()
+  def owner()
     sql = "SELECT * FROM owners WHERE id = $1"
     values  = [@owner_id]
     owner = SqlRunner.run(sql, values).first
@@ -94,7 +94,7 @@ class Adoption
   end
 
   #which pet belongs to which pet_id
-  def self.pet()
+  def pet()
     sql = "SELECT * FROM pets WHERE id = $1"
     values = [@pet_id]
     pet = SqlRunner.run(sql, values).first

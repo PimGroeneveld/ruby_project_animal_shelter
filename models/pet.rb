@@ -4,7 +4,7 @@ require 'date'
 
 class Pet
 
-  attr_accessor :name, :type, :breed, :age, :size, :sex, :admission_date, :trained, :cost
+  attr_accessor :name, :type, :breed, :age, :size, :sex, :admission_date, :adoptable, :cost
   attr_reader :id
 
   def initialize(options)
@@ -16,7 +16,7 @@ class Pet
     @size = options['size']
     @sex = options['sex']
     @admission_date = options['admission_date']
-    @trained = options['trained']
+    @adoptable = options['adoptable']
     @cost = options['cost']
   end
 
@@ -30,12 +30,12 @@ class Pet
     size,
     sex,
     admission_date,
-    trained,
+    adoptable,
     cost
     )
     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
     RETURNING *"
-    values = [@name, @type, @breed, @age, @size, @sex, @admission_date, @trained, @cost]
+    values = [@name, @type, @breed, @age, @size, @sex, @admission_date, @adoptable, @cost]
     pet_info = SqlRunner.run(sql, values)
     @id = pet_info.first()['id'].to_i
   end
@@ -68,12 +68,12 @@ class Pet
       size,
       sex,
       admission_date,
-      trained,
+      adoptable,
       cost
     ) =
     ($1, $2, $3, $4, $5, $6, $7, $8, $9)
     WHERE id = $10"
-    values = [@name, @type, @breed, @age, @size, @sex, @admission_date, @trained, @cost]
+    values = [@name, @type, @breed, @age, @size, @sex, @admission_date, @adoptable, @cost]
     SqlRunner.run( sql, values )
   end
 
@@ -103,11 +103,11 @@ class Pet
     return result
   end
 
-  #working in terminal, not in sinatra. Continue on Monday. is the .to_i even needed? seems to solve the error but then still not display anything
+  #working in terminal, not in sinatra. Continue on Monday. Not working as is --> +14 doenst work date-wise, look into Date class & Date.parse
   def ready_adoption()
-    @end_date = @admission_date.to_i + 14
-    return "Yes" if @trained == true
-    return "Not yet, will be available on #{@end_date}" if @trained == false
+    @end_date = @admission_date + 14
+    return "Yes" if @adoptable == true
+    return "Not yet, will be available on #{@end_date}" if @adoptable == false
   end
 
   #list owner for pet
@@ -116,6 +116,11 @@ class Pet
     values = [@id]
     result = SqlRunner.run(sql, values).first
     return result
+  end
+
+  def pet_adoptable()
+    return "#{@name} is adoptable" if @adoptable == "t"
+    return "#{@name} is not yet adoptable" if @adoptable == "f"
   end
 
   #version to mess around in --> wanted to create a scenario in which the @trained is obsolete and would get marked ready for adoption immediately after the two weeks have passed. Now it is more realistic though, some pets might take longer to train and thus wont accidently get marked as adoptable without human intervention
