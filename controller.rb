@@ -86,7 +86,26 @@ get "/all-pets/:id/match-to-owner" do
   erb(:match_to_owner)
 end
 
+#--- owners
+get "/home/owners" do
+  @owners = Owner.all()
+  erb(:new_owner)
+end
 
+get "/home/owners/new-owner" do
+  erb(:new_owner_save)
+end
+
+post "/home/owners" do
+  @owner = Owner.new(params)
+  @owner.save
+  erb(:create_owner)
+end
+
+post "/home/owners/delete-all" do
+  Owner.delete_all()
+  erb(:delete_all_owners)
+end
 
 
 #from index:

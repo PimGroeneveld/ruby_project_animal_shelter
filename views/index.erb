@@ -1,5 +1,13 @@
 <h1>All Pets</h1>
 
+<form action="/all-pets/new-pet" method="get">
+  <input type="submit" value="Register new pet!">
+</form>
+
+<form action="/all-pets/delete-all" method="post">
+  <input type="submit" value="Delete All Pets">
+</form>
+
 <% @pets.each do |pet| %>
 <p> Name: <%= pet.name %></p>
 <p> Type animal: <%= pet.type %></p>
@@ -13,11 +21,3 @@
 <p> <a href="/all-pets/<%= pet.id %>">Show pet details</a> </p>
 <hr/>
 <% end %>
-
-<form action="/all-pets/new-pet" method="get">
-  <input type="submit" value="Register new pet!">
-</form>
-
-<form action="/all-pets/delete-all" method="post">
-  <input type="submit" value="Delete All Pets">
-</form>

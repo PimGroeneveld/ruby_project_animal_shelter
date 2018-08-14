@@ -43,6 +43,7 @@ class Owner
     return result
   end
 
+  #UPDATE
   def update()
     sql = "UPDATE owners
     SET
@@ -70,14 +71,14 @@ class Owner
     SqlRunner.run( sql, values )
   end
 
-  #list all adopted pets per owner  --> class method (not working yet)
+  #list all adopted pets per owner  --> class method (not working yet) #not being used atm
   def self.list_adopted_pets(id)
     sql = "SELECT * FROM pets INNER JOIN adoptions ON pets.id = adoptions.pet_id WHERE adoptions.owner_id = $1"
     values = [id]
     pets = SqlRunner.run(sql, values)
     return pets.map{|pet| Pet.new(pet)}
   end
-  
+
   #instance method -> working for individual owners
   def list_adopted_pets()
     sql = "SELECT * FROM pets INNER JOIN adoptions ON pets.id = adoptions.pet_id WHERE adoptions.owner_id = $1"

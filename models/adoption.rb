@@ -71,10 +71,11 @@ class Adoption
 
   # --> insert update in here some how? and in adoption or pet class?
   # Even pets without any adoption should exist here under pet_id
-  def assign_pet()
-
-
-  end
+  #think i can delete this now
+  # def assign_pet()
+  #
+  #
+  # end
 
   #Show all adoptions as owner_id and pet_id
   def self.show_all_matches()

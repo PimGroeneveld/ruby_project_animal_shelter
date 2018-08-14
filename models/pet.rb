@@ -110,7 +110,7 @@ class Pet
     return "Not yet, will be available on #{@end_date}" if @adoptable == false
   end
 
-  #list owner for pet
+  #list owner for pet      #not being used atm
   def list_owner()
     sql = "SELECT * FROM owners INNER JOIN adoptions ON owners.id = adoptions.owner_id WHERE adoptions.pet_id = $1"
     values = [@id]

@@ -1,0 +1,16 @@
+<h1>All Propective new owners</h1>
+
+<% @owners.each do |owner| %>
+<p> Name: <%= owner.name %></p>
+<p> Funds: <%= owner.funds %></p>
+
+<hr/>
+<% end %>
+
+<form action="/home/owners/new-owner" method="get">
+  <input type="submit" value="Register new owner!">
+</form>
+
+<form action="/home/owners/delete-all" method="post">
+  <input type="submit" value="Delete All Owners">
+</form>

@@ -5,7 +5,7 @@ require_relative("../models/adoption")
 
 Owner.delete_all()
 Pet.delete_all()
-# Adoption.delete_all()
+Adoption.delete_all()
 
 owner1 = Owner.new({
   'name' => 'Doolittle',
@@ -57,7 +57,7 @@ pet2 = Pet.new({
   })
 
 pet3 = Pet.new({
-  'name' => 'Snowball',
+  'name' => 'Snowball (formerly known as Snuffels)',
   'type' => 'Dog',
   'breed' => 'Maltese',
   'age' => '5',

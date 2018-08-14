@@ -4,7 +4,7 @@
     <input id = "name" type="text" name="name" value = "<%= @pet.name%>">
     <br>
     <label for="type"> Type of animal: </label>
-    <input id = "type" type="text" name="name" value = "<%= @pet.type%>">
+    <input id = "type" type="text" name="type" value = "<%= @pet.type%>">
     <br>
     <label for="breed"> Breed: </label>
     <input id = "breed" type="text" name="breed" value = "<%= @pet.breed%>">
@@ -30,8 +30,8 @@
     <br>
     <label for="adoptable"> Adoptable: </label>
     <select id = "adoptable" name="adoptable" value = "<%= @pet.adoptable%>">
-      <option value="true">Yes</option>
-      <option value="false">No</option>
+      <option value="t">Yes</option>
+      <option value="f">No</option>
     </select>
     <br>
     <label for="cost"> Cost: </label>
