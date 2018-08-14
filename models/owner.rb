@@ -88,7 +88,7 @@ class Owner
   end
 
   #To buy pets --> deducts the cost of the pet from their funds
-  def buy_pet()
+  def buy_pet(pet_cost)
     sql = "SELECT SUM (pets.cost) FROM pets INNER JOIN adoptions ON pets.id = adoptions.pet_id WHERE adoptions.owner_id = $1"
     values = [@id]
     result = SqlRunner.run(sql, values).first

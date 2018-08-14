@@ -12,7 +12,8 @@ CREATE TABLE pets(
   sex VARCHAR(255),
   admission_date DATE,
   adoptable BOOLEAN,
-  cost INT
+  cost INT,
+  picture VARCHAR(255)
 );
 
 CREATE TABLE owners(

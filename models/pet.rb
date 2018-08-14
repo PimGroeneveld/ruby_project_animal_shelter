@@ -4,7 +4,7 @@ require 'date'
 
 class Pet
 
-  attr_accessor :name, :type, :breed, :age, :size, :sex, :admission_date, :adoptable, :cost
+  attr_accessor :name, :type, :breed, :age, :size, :sex, :admission_date, :adoptable, :cost, :picture
   attr_reader :id
 
   def initialize(options)
@@ -18,6 +18,7 @@ class Pet
     @admission_date = options['admission_date']
     @adoptable = options['adoptable']
     @cost = options['cost']
+    @picture = options['picture']
   end
 
   #CREATE
@@ -31,11 +32,12 @@ class Pet
     sex,
     admission_date,
     adoptable,
-    cost
+    cost,
+    picture
     )
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
     RETURNING *"
-    values = [@name, @type, @breed, @age, @size, @sex, @admission_date, @adoptable, @cost]
+    values = [@name, @type, @breed, @age, @size, @sex, @admission_date, @adoptable, @cost, @picture]
     pet_info = SqlRunner.run(sql, values)
     @id = pet_info.first()['id'].to_i
   end
@@ -69,11 +71,12 @@ class Pet
       sex,
       admission_date,
       adoptable,
-      cost
+      cost,
+      picture
     ) =
-    ($1, $2, $3, $4, $5, $6, $7, $8, $9)
-    WHERE id = $10"
-    values = [@name, @type, @breed, @age, @size, @sex, @admission_date, @adoptable, @cost, @id]
+    ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+    WHERE id = $11"
+    values = [@name, @type, @breed, @age, @size, @sex, @admission_date, @adoptable, @cost, @picture, @id]
     SqlRunner.run( sql, values )
   end
 

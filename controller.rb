@@ -43,6 +43,7 @@ end
 post "/all-pets/owner-save" do
   @adoption = Adoption.new(params)
   @adoption.save
+  @adoption.owner.buy_pet(@adoption.pet.cost)
   erb(:owner_save)
 end
 

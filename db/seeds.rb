@@ -41,7 +41,8 @@ pet1 = Pet.new({
   'sex' => 'male',
   'admission_date' => 20180825,
   'adoptable' => false,
-  'cost' => 300
+  'cost' => 300,
+  'picture' => 'images/dalmatian.jpg'
   })
 
 pet2 = Pet.new({
@@ -54,6 +55,7 @@ pet2 = Pet.new({
   'admission_date' => 20180810,
   'adoptable' => false,
   'cost' => 200,
+  'picture' => 'images/garfield.jpg'
   })
 
 pet3 = Pet.new({
@@ -65,7 +67,8 @@ pet3 = Pet.new({
   'sex' => 'male',
   'admission_date' => 20180720,
   'adoptable' => true,
-  'cost' => 400
+  'cost' => 400,
+  'picture' => 'images/Snuffles.jpg'
   })
 
 pet4 = Pet.new({
@@ -77,7 +80,8 @@ pet4 = Pet.new({
   'sex' => 'female',
   'admission_date' => 20180515,
   'adoptable' => true,
-  'cost' => 800
+  'cost' => 800,
+  'picture' => 'images/grumpycat.png'
   })
 
 pet5 = Pet.new({
@@ -89,7 +93,8 @@ pet5 = Pet.new({
   'sex' => 'male',
   'admission_date' => 20050220,
   'adoptable' => true,
-  'cost' => 100
+  'cost' => 100,
+  'picture' => 'images/bobby.png'
   })
 
 pet1.save()
