@@ -20,113 +20,135 @@ h3{
 }
 
 p{
-  font-family: sans-serif;
-  font-style: oblique;
+  font-family: 'Rubik', sans-serif;
   font-size: 15px;
 }
 
 .homepage_image{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
-}
-
-.buttons{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 7%;
+  width: 40%;
 }
 
+.button_container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.buttons {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+/* focusus on nav bar items */
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 200px;
-    background-color: lightsteelblue;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 20px;
+  width: 200px;
+  background-color: lightsteelblue;
 }
 
 li a {
-    display: block;
-    color: #000;
-    padding: 8px 16px;
-    text-decoration: none;
+  display: block;
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
 }
 
-/* Change the link color on hover */
+/* change color on hover */
 li a:hover {
-    background-color: #555;
-    color: honeydew;
+  background-color: #555;
+  color: honeydew;
 }
 
-<style>
-/* Style The Dropdown Button */
+/* styling dropdown*/
 .dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
 }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 20px;
 }
 
-/* Dropdown Content (Hidden by Default) */
+/* hides dropdown nav bar by default */
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+  display: none;
+  position: absolute;
+  background-color: honeydew;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: 'Contrail One', cursive;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: darkturquoise}
+.dropdown-content a:hover {
+  background-color: darkturquoise
+}
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
+.pet_pics{
+  display: flex;
+  float: right;
+  overflow: auto;
 }
-</style>
 
+.footer{
+  margin: auto;
+  font-size: 16px;
+  width: 5%;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: 'Contrail One', cursive;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+}
 
+label{
+  font-family: 'Contrail One', cursive;
+  font-size: 18px;
+}
 
-/* .myphoto{
-  flex-wrap: wrap;
-  flex-direction: row-reverse;
-  align-content: stretch;
-  align-items: center;
-  align-items: center;
-} */
-
-
-
-/* align-items: flex-end;
-justify-content: space-around;
-flex-direction: row-reverse;
-flex-wrap:
-order:
-flex-flow: flex direction and flex wrap combined
-align-content: spacing between items
- */
-/* align horizontal, justify vertical, flex to change around */
+.pet_form{
+  width: 100%;
+  padding: 10px 15px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: gainsboro;
+  border: 3px solid #555;
+  font-size: 18px;
+}

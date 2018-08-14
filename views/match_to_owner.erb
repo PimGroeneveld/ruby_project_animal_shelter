@@ -4,14 +4,14 @@
 
 <p> New match: </p>
 <label for="owner"> Owner name: </label>
-   <select id ="owner" name = "owner_id">
+   <select class = "pet_form" id ="owner" name = "owner_id">
      <% @owners.each do |owner| %>
      <option value = "<%= owner.id%>"><%= owner.name %></option>
      <% end %>
    </select>
    <br>
 <label for="pet"> Adopted pet: </label>
-    <select id ="pet" name = "pet_id">
+    <select class = "pet_form" id ="pet" name = "pet_id">
       <% @pets.each do |pet| %>
       <option value = "<%= pet.id%>"><%= pet.name %></option>
       <% end %>
@@ -19,6 +19,7 @@
     <br>
 <hr/>
 
-<input type="submit" value="Submit match!">
-
+<div class = "button_container">
+<input class = "buttons" type="submit" value="Submit match!">
+</div>
 </form>

@@ -1,21 +1,18 @@
 <h1 id="top">All Pets</h1>
 
-<div class="buttons">
+<div class="button_container">
 <form action="/all-pets/new-pet" method="get">
-  <input type="submit" value="Register new pet!">
+  <input class="buttons" type="submit" value="Register new pet!">
 </form>
 
 <form action="/all-pets/delete-all" method="post">
-  <input type="submit" value="Delete All Pets">
+  <input class="buttons" type="submit" value="Delete All Pets">
 </form>
 </div>
 
-<div id=“pets_index_page”>
 <% @pets.each do |pet| %>
 <figure>
- <img src="/<%= pet.picture %>" alt= "Image of <%= pet.name %>" style="height: 200px;">
- <figcaption><%= pet.name %></figcaption>
-<!-- <p> Picture: <img src="<%= pet.picture %>"/></p> -->
+ <img class="pet_pics" src="/<%= pet.picture %>" alt= "Image of <%= pet.name %>" style="height: 200px;">
 <p> Name: <%= pet.name %></p>
 <p> Type animal: <%= pet.type %></p>
 <p> Breed: <%= pet.breed %></p>
@@ -29,7 +26,6 @@
 <hr/>
 </figure>
 <% end %>
-</div>
 
 <div class="footer">
   <a href="#top">Go to top</a>

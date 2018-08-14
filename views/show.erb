@@ -11,16 +11,16 @@
 <p> Ready for adoption: <%= @pet.pet_adoptable()%></p>
 <hr/>
 
-<div class="buttons"
+<div class="button_container">
 <form action="/all-pets/<%= @pet.id%>/delete" method="post">
-  <input type="submit" value="Delete">
+  <input class = "buttons" type="submit" value="Delete">
 </form>
 
 <form action="/all-pets/<%= @pet.id%>/edit" method="get">
-  <input type="submit" value="Edit">
+  <input class = "buttons" type="submit" value="Edit">
 </form>
 
 <form action="/all-pets/<%= @pet.id%>/match-to-owner" method="get">
-  <input type="submit" value="Match to new owner">
+  <input class = "buttons" type="submit" value="Match to new owner">
 </form>
 </div>
