@@ -10,7 +10,6 @@ class Owner
     @id = options['id'].to_i if options['id']
     @name = options['name']
     @funds = options['funds'].to_i
-    @pets = []
   end
 
   #CREATE
@@ -71,14 +70,6 @@ class Owner
     SqlRunner.run( sql, values )
   end
 
-  #list all adopted pets per owner  --> class method (not working yet) #not being used atm
-  def self.list_adopted_pets(id)
-    sql = "SELECT * FROM pets INNER JOIN adoptions ON pets.id = adoptions.pet_id WHERE adoptions.owner_id = $1"
-    values = [id]
-    pets = SqlRunner.run(sql, values)
-    return pets.map{|pet| Pet.new(pet)}
-  end
-
   #instance method -> working for individual owners
   def list_adopted_pets()
     sql = "SELECT * FROM pets INNER JOIN adoptions ON pets.id = adoptions.pet_id WHERE adoptions.owner_id = $1"
@@ -87,7 +78,7 @@ class Owner
     return pets.map{|pet| Pet.new(pet)}
   end
 
-  #To buy pets --> deducts the cost of the pet from their funds
+  #To buy pets --> deducts the cost of the pet from their funds, was planning on integrating this later on
   def buy_pet(pet_cost)
     sql = "SELECT SUM (pets.cost) FROM pets INNER JOIN adoptions ON pets.id = adoptions.pet_id WHERE adoptions.owner_id = $1"
     values = [@id]

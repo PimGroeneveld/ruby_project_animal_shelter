@@ -107,7 +107,3 @@ post "/home/owners/delete-all" do
   Owner.delete_all()
   erb(:delete_all_owners)
 end
-
-
-#from index:
-#<!-- <p> Ready for adoption: <%= pet.ready_adoption%></p> -->

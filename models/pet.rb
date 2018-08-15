@@ -59,7 +59,6 @@ class Pet
     return result
   end
 
-  #UPDATE   --> same as with owners but now: "PG::ProtocolViolation: ERROR:  bind message supplies 2 parameters, but prepared statement "query" requires 10"
   def update()
     sql = "UPDATE pets
     SET (
@@ -106,13 +105,11 @@ class Pet
     return result
   end
 
-  #working in terminal, not in sinatra. Continue on Monday. Not working as is --> +14 doenst work date-wise, look into Date class & Date.parse
   def ready_adoption()
     plus_two_weeks = @admission_date += 14
     plus_two_weeks = plus_two_weeks.strftime("%a, %d %b %Y")
-
     return "Yes" if @adoptable == true
-    return "Not yet, will be available on #{plus_two_weeks}"
+    return "Not yet, will be available around #{plus_two_weeks}"
   end
 
   #list owner for pet #not being used atm
@@ -123,6 +120,7 @@ class Pet
     return result
   end
 
+  #replaced by ready_adoption, not being used atm
   def pet_adoptable()
     return "#{@name} is adoptable" if @adoptable == "t"
     return "#{@name} is not yet adoptable" if @adoptable == "f"

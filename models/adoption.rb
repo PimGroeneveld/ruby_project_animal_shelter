@@ -10,7 +10,6 @@ class Adoption
     @id = options['id'].to_i if options['id']
     @owner_id = options['owner_id'].to_i
     @pet_id = options['pet_id'].to_i
-    @pets = []
   end
 
   #CREATE
@@ -68,14 +67,6 @@ class Adoption
     values = [@id]
     SqlRunner.run( sql, values )
   end
-
-  # --> insert update in here some how? and in adoption or pet class?
-  # Even pets without any adoption should exist here under pet_id
-  #think i can delete this now
-  # def assign_pet()
-  #
-  #
-  # end
 
   #Show all adoptions as owner_id and pet_id
   def self.show_all_matches()
