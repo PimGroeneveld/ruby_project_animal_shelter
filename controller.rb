@@ -72,7 +72,6 @@ get "/all-pets/:id/edit" do
   erb(:edit)
 end
 
- #update still not fully working, messing up order of updated info
 #UPDATE pets info
 post "/all-pets/:id" do
   @pet = Pet.new(params)
