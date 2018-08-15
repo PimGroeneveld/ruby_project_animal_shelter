@@ -108,8 +108,8 @@ class Pet
   def ready_adoption()
     plus_two_weeks = @admission_date += 14
     plus_two_weeks = plus_two_weeks.strftime("%a, %d %b %Y")
-    return "Yes" if @adoptable == true
-    return "Not yet, will be available around #{plus_two_weeks}"
+    return "Yes" if @adoptable == "t"
+    return "Not yet, will be available around #{plus_two_weeks}" if @adoptable == "f"
   end
 
   #list owner for pet #not being used atm
