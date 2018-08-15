@@ -1,4 +1,5 @@
 require("pry")
+require 'date'
 require_relative("../models/owner")
 require_relative("../models/pet")
 require_relative("../models/adoption")
@@ -39,7 +40,7 @@ pet1 = Pet.new({
   'age' => '1',
   'size' => 'big',
   'sex' => 'male',
-  'admission_date' => 20180825,
+  'admission_date' => '20180729',
   'adoptable' => false,
   'cost' => 300,
   'picture' => 'images/dalmatian.jpg'
@@ -52,7 +53,7 @@ pet2 = Pet.new({
   'age' => '12',
   'size' => 'small',
   'sex' => 'male',
-  'admission_date' => 20180810,
+  'admission_date' => '20180810',
   'adoptable' => false,
   'cost' => 200,
   'picture' => 'images/garfield.jpg'
@@ -65,7 +66,7 @@ pet3 = Pet.new({
   'age' => '5',
   'size' => 'small',
   'sex' => 'male',
-  'admission_date' => 20180720,
+  'admission_date' => '20180720',
   'adoptable' => true,
   'cost' => 400,
   'picture' => 'images/Snuffles.jpg'
@@ -78,7 +79,7 @@ pet4 = Pet.new({
   'age' => '7',
   'size' => 'small',
   'sex' => 'female',
-  'admission_date' => 20180515,
+  'admission_date' => '20180515',
   'adoptable' => true,
   'cost' => 800,
   'picture' => 'images/grumpycat.png'
@@ -91,7 +92,7 @@ pet5 = Pet.new({
   'age' => '15',
   'size' => 'small',
   'sex' => 'male',
-  'admission_date' => 20050220,
+  'admission_date' => '20050220',
   'adoptable' => true,
   'cost' => 100,
   'picture' => 'images/bobby.png'
